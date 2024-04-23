@@ -8,17 +8,18 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function toggleZoom(image) {
-        if (image.classList.contains('zoomed')) {
-            image.classList.remove('zoomed');
+        if (image.style.transform === 'scale(1.5)') {
+            image.style.transform = 'scale(1)';
         } else {
             resetZoom();
-            image.classList.add('zoomed');
+            image.style.transform = 'scale(1.5)';
+            image.style.transition = 'transform 0.3s ease';
         }
     }
 
     function resetZoom() {
         images.forEach(image => {
-            image.classList.remove('zoomed');
+            image.style.transform = 'scale(1)';
         });
     }
 });
